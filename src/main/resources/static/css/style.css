@@ -1,0 +1,59 @@
+/* Header Style */
+header h1 {
+	background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 15px;
+    font-size: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* Uplaod File */
+.uploadFile form {
+	margin: 0 auto;
+	margin-top: 4em;
+}
+.uploadFile form label {
+	font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.uploadFile form .form-control {
+	padding: 3px;
+}
+.submitFile {
+	padding: 5px;
+    width: 35%;
+    font-size: 20px;
+}
+
+/* Welcome Style */
+#welcome {
+	height: 100vh;
+	background-color: aliceblue;
+}
+.challenges {
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.challenges a, .challenges a:hover {
+	color: white;
+}
+
+/* Convert Temperature Style */
+#convertTemp {
+	margin-top: 5em;
+}
+.tempValue {
+	margin: 15px auto;
+}
+.submitTemp {
+	padding: 5px;
+    width: 15%;
+    font-size: 20px;
+}
+#error {
+	margin-top: 2em;
+	padding: 0 5em;
+}

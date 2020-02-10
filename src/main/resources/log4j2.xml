@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+	<Properties>
+		<Property name="LOG_PATTERN">%d{MM:dd HH:mm:ss.SSS} [%t] [%level]
+			[%logger{36}] - %msg%n</Property>
+	</Properties>
+	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT"
+			follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+
+		
+
+		<!-- Development Server file path -->
+		<RollingFile name="FileAppender"
+			fileName="/home/ubuntu/pwstest/logs/application.log"
+			filePattern="/home/ubuntu/pwstest/logs/application-%d{yyyy-MM-dd}-%i.log">
+
+
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" />
+		</RollingFile>
+
+	</Appenders>
+	<Loggers>
+
+		<!-- Logging custom package -->
+		<Logger name="com.pwstest.pws" level="INFO"
+			additivity="false">
+			<AppenderRef ref="ConsoleAppender"></AppenderRef>
+			<AppenderRef ref="FileAppender"></AppenderRef>
+		</Logger>
+
+		<!-- Logging spring boot package -->
+		<Logger name="org.springframework.boot" level="WARN"
+			additivity="false">
+			<AppenderRef ref="ConsoleAppender"></AppenderRef>
+			<AppenderRef ref="FileAppender"></AppenderRef>
+		</Logger>
+
+		<Root level="WARN">
+			<AppenderRef ref="ConsoleAppender"></AppenderRef>
+			<AppenderRef ref="FileAppender"></AppenderRef>
+		</Root>
+	</Loggers>
+</Configuration>
