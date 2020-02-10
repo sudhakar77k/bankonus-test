@@ -177,7 +177,7 @@ public class UserController {
 		model.addObject("url", req.getRequestURL());
 		model.addObject("errMsg", "We are sorry. " + "Your request cannot be done, please try again later! ");
 		model.addObject("exceptionmessage", ex.getMsg());
-		model.setViewName("/error");
+		model.setViewName("error");
 		return model;
 	}
 
@@ -192,7 +192,7 @@ public class UserController {
 		model.addObject("url", req.getRequestURL());
 		model.addObject("errMsg", "We are sorry. " + "Your request cannot be done, please try again later! ");
 		model.addObject("exceptionmessage", ex.getMessage());
-		model.setViewName("/error");
+		model.setViewName("error");
 		return model;
 	}
 

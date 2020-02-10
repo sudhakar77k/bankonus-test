@@ -8,6 +8,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,12 +22,18 @@ import com.pwstest.pws.service.ConvertTempratureService;
  */
 @Service
 public class ConvertTempratureServiceImpl implements ConvertTempratureService {
+	
+	
+	
+
+	@Value("${converttemp.url}")
+	private String convertTempUrl;
 
 	@Override
 	 @Async("asyncExecutor")
 	public CompletableFuture<TemperatureConversion> convertTemprature(String type, Double value) throws InterruptedException {
 		
-		 final String uri = "http://www.q88.com/WS/Q88WSInternal.asmx/ConvertTemperature?property=";
+		 final String uri = convertTempUrl;
 		 
 		 TemperatureConversion temperatureConversion = null;
 		    RestTemplate restTemplate = new RestTemplate();
