@@ -17,8 +17,8 @@
     </header>
     <!-- Convert Temperatire Section Start -->
     <section id="convertTemp" class="text-center">
-        <h4>Temprature convertion calculator</h4>
-        <form method="POST" th:action="@{/convertTemprature}" enctype="te/form-data">
+        <h4>temperature convertion calculator</h4>
+        <form method="POST" th:action="@{/converttemperature}" enctype="te/form-data">
             <label path="gender">Select the Type</label>
             <div class="custom-control custom-radio">
                 <input type="radio" id="customRadio1" name="type" class="custom-control-input" value="Celsius" checked="checked">
@@ -32,7 +32,7 @@
             <button type="submit" class="btn btn-primary submitTemp">Submit</button>
         </form>
         <hr />
-    <h3 class="text-center">Converted Tempratures</h3>
+    <h3 class="text-center">Converted temperatures</h3>
       <div th:if="${temperatureConversion}">
            <h4>Celsius: <span th:text="${temperatureConversion.Celsius}" >    </h4>    </div>
         <div th:if="${temperatureConversion}">

@@ -28,7 +28,7 @@ import com.pwstest.pws.ApiSuccess;
 import com.pwstest.pws.entity.TemperatureConversion;
 import com.pwstest.pws.entity.UserPhone;
 import com.pwstest.pws.exception.BankOnUsException;
-import com.pwstest.pws.service.ConvertTempratureService;
+import com.pwstest.pws.service.ConverttemperatureService;
 import com.pwstest.pws.service.FileService;
 import com.pwstest.pws.service.UserPhoneService;
 import com.pwstest.pws.utility.CommonUtils;
@@ -40,7 +40,7 @@ public class UserController {
 	FileService fileService;
 
 	@Autowired
-	ConvertTempratureService convertTempratureService;
+	ConverttemperatureService converttemperatureService;
 
 	@Autowired
 	UserPhoneService userPhoneService;
@@ -105,7 +105,7 @@ public class UserController {
 
 	/**
 	 * 
-	 * method to convert Temprature using third party API WS
+	 * method to convert temperature using third party API WS
 	 * 
 	 * @param type
 	 * @param value
@@ -115,12 +115,12 @@ public class UserController {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	@PostMapping("/convertTemprature")
-	public String convertTemprature(@RequestParam("type") String type, @RequestParam("value") Double value,
+	@PostMapping("/converttemperature")
+	public String converttemperature(@RequestParam("type") String type, @RequestParam("value") Double value,
 			RedirectAttributes redirectAttributes) throws BankOnUsException, InterruptedException, ExecutionException {
 
-		CompletableFuture<TemperatureConversion> temperatureConversion = convertTempratureService
-				.convertTemprature(type, value);
+		CompletableFuture<TemperatureConversion> temperatureConversion = converttemperatureService
+				.converttemperature(type, value);
 		CompletableFuture.allOf(temperatureConversion).join();
 		redirectAttributes.addFlashAttribute("temperatureConversion", temperatureConversion.get());
 
